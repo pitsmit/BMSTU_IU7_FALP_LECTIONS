@@ -1,0 +1,147 @@
+\chapter{Лекция 5 — 10 марта 2025}
+
+\section{Функционалы}
+
+\begin{listbox}{\noindent \begin{listboxtitle}{}2\end{listboxtitle} 
+	\raisebox{6pt}{Функционалы делятся на два типа:}}
+\begin{enumerate}
+	\item отображающие -- применяют функцию многократно к 
+    элементам списка, имя часто начинается на map;
+	\item применяющие -- apply, funcall.
+\end{enumerate}
+\end{listbox}
+
+\section{apply}
+
+APPLY принимает 2 аргумента, из которых первый аргумент представляет 
+собой функцию, которая применяется к элементам списка, составляющим 
+второй аргумент функции. Должно быть выдержано соответствие между
+структурой элементов списка и функцией.  Функция может быть
+определена через lambda. Символ \# называется 
+функциональной блокировкой. Необходим для явного указанию 
+интерпретатору, что первый аргумент APPLY -- функция, а не переменная.
+В противном случае возникнет ошибка несвязанной переменной.
+
+\begin{figure}[H]
+    \begin{listingbox}{}
+        \lstinputlisting[language=Lisp]{lists/apply.lisp}
+    \end{listingbox}
+    \caption{Пример работы функции apply}
+    \label{lst:apply-example}
+\end{figure}
+
+\section{funcall}
+
+FUNCALL по своему действию аналогичен APPLY, но аргументы для вызываемой 
+функции он принимает не списком, а по отдельности.
+
+\begin{figure}[H]
+    \begin{listingbox}{}
+        \lstinputlisting[language=Lisp]{lists/funcall.lisp}
+    \end{listingbox}
+    \caption{Пример работы функции funcall}
+    \label{lst:funcall-example}
+\end{figure}
+
+\section{mapcar}
+
+MAPCAR возвращает список, полученный из результатов применения
+функции к элементам списка. Список формируется с помощью LIST.
+Количество аргументов у функции должно соответствовать количеству 
+передаваемых в MAPCAR списков. На каждом шаге работы MAPCAR выделяет
+i-е элементы списков и передаёт в функцию. Если передаваемые 
+списки разной длины, на выходе получится список длины минимального 
+списка. 
+
+\begin{figure}[H]
+    \begin{listingbox}{}
+        \lstinputlisting[language=Lisp]{lists/mapcar.lisp}
+    \end{listingbox}
+    \caption{Пример работы функции mapcar}
+    \label{lst:mapcar-example}
+\end{figure}
+
+\section{maplist}
+
+MAPLIST применяет переданную функцию сначала ко всему списку,
+потом к нему без первого элемента и т.д. Список формируется с помощью 
+LIST. Работа MAPLIST с несколькими списками аналогична MAPCAR, только
+возвращается список списков.
+
+\begin{figure}[H]
+    \begin{listingbox}{}
+        \lstinputlisting[language=Lisp]{lists/maplist.lisp}
+    \end{listingbox}
+    \caption{Пример работы функции maplist}
+    \label{lst:maplist-example}
+\end{figure}
+
+\section{mapcan, mapcon}
+
+MAPCAN и MAPCON аналогичны MAPCAR и MAPLIST соответственно, за 
+исключением того, что результат формируется с помощью функции 
+NCONC, что разрушает искомый список.
+
+\section{find-if}
+
+FIND-IF применяет функцию к car элементам списка, возвращает
+первый car элемент, удовлетворивший условию. В противном случае
+возврат NIL.
+
+\begin{figure}[H]
+    \begin{listingbox}{}
+        \lstinputlisting[language=Lisp]{lists/find-if.lisp}
+    \end{listingbox}
+    \caption{Пример работы функции find-if}
+    \label{lst:find-if-example}
+\end{figure}
+
+\section{remove-if, remove-if-not}
+
+REMOVE-IF возвращает новый список с элементами,
+для которых предикат вернул NIL.
+
+REMOVE-IF-NOT возвращает новый список с элементами,
+для которых предикат вернул T.
+
+\begin{figure}[H]
+    \begin{listingbox}{}
+        \lstinputlisting[language=Lisp]{lists/remove-if-remove-if-not.lisp}
+    \end{listingbox}
+    \caption{Пример работы функций remove-if, remove-if-not}
+    \label{lst:remove-if-remove-if-not-example}
+\end{figure}
+
+\section{reduce}
+
+REDUCE каскадно преобразует элементы списка, используя
+двухаргументную функцию. Сначала к первому и второму, потом к 
+образовавшемуся элементу и 3 элементу списка и т.д.
+
+\begin{figure}[H]
+    \begin{listingbox}{}
+        \lstinputlisting[language=Lisp]{lists/reduce.lisp}
+    \end{listingbox}
+    \caption{Пример работы функции reduce}
+    \label{lst:reduce-example}
+\end{figure}
+
+\section{every, some}
+
+EVERY применяет предикат к каждому элементу списка. Если предикат
+возвращает NIL, EVERY возвращает NIL. Если дошла до конца
+списка, то возвращается T.
+
+SOME применяет предикат к элементам до тех пор, пока он не вернёт
+T. Если дошла до конца списка, то возвращает NIL.
+
+По аналогии с MAPCAR можно передавать сразу несколько списков
+в EVERY и SOME.
+
+\begin{figure}[H]
+    \begin{listingbox}{}
+        \lstinputlisting[language=Lisp]{lists/every-some.lisp}
+    \end{listingbox}
+    \caption{Пример работы функций every, some}
+    \label{lst:every-some-example}
+\end{figure}

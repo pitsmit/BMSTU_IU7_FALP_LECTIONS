@@ -1,0 +1,74 @@
+\chapter{Лекция 6 — 17 марта 2025}
+
+\section{Основные понятия о рекурсии}
+
+\begin{listbox}{\noindent \begin{listboxtitle}{}2\end{listboxtitle} 
+    \raisebox{6pt}{Методы организации повторных вычислений:}}
+\begin{enumerate}
+	\item функционалы;
+	\item рекурсия.
+\end{enumerate}
+\end{listbox}
+
+\begin{listbox}{\noindent \begin{listboxtitle}{}3\end{listboxtitle} 
+    \raisebox{6pt}{Классификация рекурсии:}}
+\begin{enumerate}
+	\item простая -- один рекурсивный вызов;
+	\item первого порядка -- несколько рекурсивных вызовов;
+	\item взаимная -- функции рекурсивно вызывают друг друга.
+\end{enumerate}
+\end{listbox}
+
+\begin{listbox}{\noindent \begin{listboxtitle}{}2\end{listboxtitle} 
+    \raisebox{6pt}{Классификация рекурсии в рамках классификации:}}
+\begin{enumerate}
+	\item хвостовая -- рекурсия, при завершении которой результат УЖЕ 
+    сформирован, не отстается отложенных вычислений;
+	\item дополняемая -- при обращении к рекурсии используется дополнительная
+    функция ВНЕ рекурсивного вызова;
+    \item множественная -- на одной ветке несколько рекурсивных вызовов.
+\end{enumerate}
+\end{listbox}
+
+\begin{listbox}{\noindent \begin{listboxtitle}{}3\end{listboxtitle} 
+    \raisebox{6pt}{Проблемы рекурсии:}}
+\begin{enumerate}
+	\item как совершить первый вызов;
+	\item как остановить выполнение;
+	\item как организовать новый шаг.
+\end{enumerate}
+\end{listbox}
+
+\section{Примеры построения рекурсий разных видов}
+
+\begin{figure}[H]
+    \begin{listingbox}{}
+        \lstinputlisting[language=Lisp]{lists/recursion-add.lisp}
+    \end{listingbox}
+    \caption{Пример дополняемой рекурсии}
+    \label{lst:recursion-add-example}
+\end{figure}
+
+\begin{figure}[H]
+    \begin{listingbox}{}
+        \lstinputlisting[language=Lisp]{lists/recursion-tail.lisp}
+    \end{listingbox}
+    \caption{Пример хвостовой рекурсии}
+    \label{lst:recursion-tail-example}
+\end{figure}
+
+\begin{figure}[H]
+    \begin{listingbox}{}
+        \lstinputlisting[language=Lisp]{lists/recursion-many.lisp}
+    \end{listingbox}
+    \caption{Пример множественной рекурсии}
+    \label{lst:recursion-many-example}
+\end{figure}
+
+\begin{figure}[H]
+    \begin{listingbox}{}
+        \lstinputlisting[language=Lisp]{lists/recursion-sort.lisp}
+    \end{listingbox}
+    \caption{Пример сортировки вставками с помощью рекурсии}
+    \label{lst:recursion-sort-example}
+\end{figure}

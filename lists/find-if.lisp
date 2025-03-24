@@ -1,0 +1,1 @@
+(print (find-if #'numberp '(a 2 3))) ; 2

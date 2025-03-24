@@ -1,0 +1,15 @@
+(defun insert-help (x lst)
+    (cond ((null lst) 
+                (list x))
+          ((<= x (car lst)) 
+                (cons x lst))
+          (t (cons (car lst) 
+                   (insert-help x (cdr lst))))))
+
+(defun sort-help(lst1 lst2)
+    (cond ((null lst1) lst2)
+        (t (sort-help (cdr lst1) 
+                      (insert-help (car lst1) 
+                                   lst2)))))
+
+(sort-help '(3 2 4 1) nil) ; (1 2 3 4) 

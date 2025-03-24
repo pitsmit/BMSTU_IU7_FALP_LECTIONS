@@ -1,0 +1,228 @@
+\ProvidesPackage{settings}[22/09/2024]
+\RequirePackage{lmodern}
+\RequirePackage[T2A]{fontenc}
+\RequirePackage[utf8]{inputenc}
+\RequirePackage[english,russian]{babel}
+\RequirePackage[a4paper, left=3cm, right=1cm, top=2cm, bottom=2cm]{geometry}
+\RequirePackage{amsmath}
+\RequirePackage{placeins}
+\RequirePackage{float}
+\RequirePackage{threeparttable}
+\RequirePackage[justification=centering]{caption}
+\RequirePackage{graphicx}
+\RequirePackage{tcolorbox} 
+\RequirePackage{etoolbox} 
+\RequirePackage{svg}
+\RequirePackage{pdfpages}
+\RequirePackage{textgreek}
+\RequirePackage{enumitem}
+\RequirePackage{indentfirst}
+\RequirePackage[hyphens]{url}
+\RequirePackage{hyperref}
+\RequirePackage{titlesec}
+\RequirePackage{microtype}
+\RequirePackage{listings}
+\RequirePackage{xcolor}
+\RequirePackage[utf8]{inputenc}
+\RequirePackage{tikz}
+\RequirePackage{mathtext}
+\RequirePackage{pgfplots}
+\usetikzlibrary{matrix, shapes.geometric}
+\usetikzlibrary{fit}
+\RequirePackage{pdfpages}
+
+\hypersetup
+{
+	colorlinks=true,
+	linkcolor=black,
+	urlcolor=blue,
+	citecolor=red,
+	filecolor=magenta,
+	pdftitle={},
+	pdfauthor={},
+	pdfsubject={},
+	pdfkeywords={}
+}
+
+\titleformat{\section}
+	{\LARGE\bfseries\centering}
+	{\thesection}
+	{1em}{}
+	\titlespacing*{\chapter}{0pt}{-30pt}{1em}
+	\titlespacing*{\section}{\parindent}{*4}{*4}
+	\titlespacing*{\subsection}{\parindent}{*4}{*4}
+
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.92, 0.93, 0.82}
+\definecolor{listback}{rgb}{0.86, 0.83, 0.86}
+\definecolor{codeblue}{rgb}{0,0,0.8}    
+
+% Стиль для листинга
+\lstdefinestyle{mystyle}{
+    backgroundcolor=\color{backcolour},   
+    commentstyle=\color{codegray},
+    keywordstyle=\color{purple},
+    stringstyle=\color{codepurple},
+    basicstyle=\ttfamily\large,
+    breakatwhitespace=false,         
+    breaklines=true,                 
+    captionpos=b,                    
+    keepspaces=true,                 
+    numbers=none,                    
+    numbersep=5pt,                  
+    showspaces=false,                
+    showstringspaces=false,
+    showtabs=false,                  
+    tabsize=2,
+    frame=none,
+    morekeywords={defun, let, print, lambda, defvar, defparameter, progn, cond, case, loop, do, dotimes, dolist, mapcar, apply, funcall, quote, eval},
+    morecomment=[l]{;},
+    literate=
+        {а}{{\selectfont\char224}}1
+        {б}{{\selectfont\char225}}1
+        {в}{{\selectfont\char226}}1
+        {г}{{\selectfont\char227}}1
+        {д}{{\selectfont\char228}}1
+        {е}{{\selectfont\char229}}1
+        {ё}{{\selectfont\char184}}1
+        {ж}{{\selectfont\char230}}1
+        {з}{{\selectfont\char231}}1
+        {и}{{\selectfont\char232}}1
+        {й}{{\selectfont\char233}}1
+        {к}{{\selectfont\char234}}1
+        {л}{{\selectfont\char235}}1
+        {м}{{\selectfont\char236}}1
+        {н}{{\selectfont\char237}}1
+        {о}{{\selectfont\char238}}1
+        {п}{{\selectfont\char239}}1
+        {р}{{\selectfont\char240}}1
+        {с}{{\selectfont\char241}}1
+        {т}{{\selectfont\char242}}1
+        {у}{{\selectfont\char243}}1
+        {ф}{{\selectfont\char244}}1
+        {х}{{\selectfont\char245}}1
+        {ц}{{\selectfont\char246}}1
+        {ч}{{\selectfont\char247}}1
+        {ш}{{\selectfont\char248}}1
+        {щ}{{\selectfont\char249}}1
+        {ъ}{{\selectfont\char250}}1
+        {ы}{{\selectfont\char251}}1
+        {ь}{{\selectfont\char252}}1
+        {э}{{\selectfont\char253}}1
+        {ю}{{\selectfont\char254}}1
+        {я}{{\selectfont\char255}}1
+        {А}{{\selectfont\char192}}1
+        {Б}{{\selectfont\char193}}1
+        {В}{{\selectfont\char194}}1
+        {Г}{{\selectfont\char195}}1
+        {Д}{{\selectfont\char196}}1
+        {Е}{{\selectfont\char197}}1
+        {Ё}{{\selectfont\char168}}1
+        {Ж}{{\selectfont\char198}}1
+        {З}{{\selectfont\char199}}1
+        {И}{{\selectfont\char200}}1
+        {Й}{{\selectfont\char201}}1
+        {К}{{\selectfont\char202}}1
+        {Л}{{\selectfont\char203}}1
+        {М}{{\selectfont\char204}}1
+        {Н}{{\selectfont\char205}}1
+        {О}{{\selectfont\char206}}1
+        {П}{{\selectfont\char207}}1
+        {Р}{{\selectfont\char208}}1
+        {С}{{\selectfont\char209}}1
+        {Т}{{\selectfont\char210}}1
+        {У}{{\selectfont\char211}}1
+        {Ф}{{\selectfont\char212}}1
+        {Х}{{\selectfont\char213}}1
+        {Ц}{{\selectfont\char214}}1
+        {Ч}{{\selectfont\char215}}1
+        {Ш}{{\selectfont\char216}}1
+        {Щ}{{\selectfont\char217}}1
+        {Ъ}{{\selectfont\char218}}1
+        {Ы}{{\selectfont\char219}}1
+        {Ь}{{\selectfont\char220}}1
+        {Э}{{\selectfont\char221}}1
+        {Ю}{{\selectfont\char222}}1
+        {Я}{{\selectfont\char223}}1
+}
+
+% Создаем окружение для листинга с рамкой
+\newtcolorbox{listingbox}[1]{
+    colframe=black, % Цвет рамки
+    colback=backcolour, % Цвет фона
+    arc=5pt, % Закругление углов
+    boxrule=1pt, % Толщина рамки
+    boxsep=2pt, % Отступ содержимого от рамки
+    left=3pt, % Отступ слева
+    right=3pt, % Отступ справа
+    top=3pt, % Отступ сверху
+    bottom=3pt, % Отступ снизу
+}
+
+\newtcolorbox{listbox}[1]{
+    colframe=black, % Цвет рамки
+    colback=listback, % Цвет фона
+    arc=5pt, % Закругление углов
+    boxrule=1pt, % Толщина рамки
+    boxsep=1pt, % Отступ содержимого от рамки
+    left=1pt, % Отступ слева
+    right=5pt, % Отступ справа
+    top=1pt, % Отступ сверху
+    bottom=3pt, % Отступ снизу
+    title=#1, % Заголовок (передаётся аргументом)
+    fonttitle=\bfseries\color{black}, % Стиль заголовка (чёрный цвет)
+    attach title to upper, % Заголовок внутри рамки
+    coltitle=black, % Цвет текста заголовка
+}
+
+\newtcolorbox{listboxtitle}[1]{
+    colframe=black, % Цвет рамки
+    colback=white, % Цвет фона
+    arc=5pt, % Закругление углов
+    boxrule=1pt, % Толщина рамки
+    boxsep=0pt, % Убираем внутренний отступ содержимого от рамки
+    left=0pt, % Убираем отступ слева
+    right=0pt, % Убираем отступ справа
+    top=0pt, % Убираем отступ сверху
+    bottom=0pt, % Убираем отступ снизу
+    width=0.05\textwidth, % Ширина (5% ширины текста)
+    height=0.05\textwidth, % Высота (5% ширины текста)
+    halign=center, % Горизонтальное выравнивание по центру
+    valign=center, % Вертикальное выравнивание по центру
+    before upper={\parindent0pt}, % Убираем отступы в содержимом
+    after={\noindent}, % Убираем отступы после рамки
+    before={\noindent}, % Убираем отступы перед рамкой
+}
+
+% Настройка стиля для рамок вокруг рисунков
+\newtcolorbox{imagebox}{
+    colframe=black, % Цвет рамки
+    colback=white,  % Цвет фона
+    arc=5pt,        % Закругление углов
+    boxrule=1pt,    % Толщина рамки
+    boxsep=5pt,     % Отступ содержимого от рамки
+    left=10pt,      % Отступ слева
+    right=10pt,     % Отступ справа
+    top=10pt,       % Отступ сверху
+    bottom=10pt,    % Отступ снизу
+    before=\vspace{10pt}, % Отступ перед рамкой
+    after=\vspace{10pt}   % Отступ после рамки
+}
+
+\lstset{style=mystyle}
+
+\pgfplotsset{compat=1.18}
+
+\AtBeginDocument
+{
+    \fontsize{14}{21}\selectfont
+    \titleformat{name=\chapter,numberless}[block]{\normalfont\huge\bfseries\centering}{}{0pt}{}
+    \titleformat{\chapter}[block]{\normalfont\huge\bfseries\centering}{}{0pt}{\thechapter\quad}
+    \setlength{\parindent}{1.25cm}
+    \captionsetup{labelsep=endash, font={large}} % Увеличиваем размер шрифта подписей
+    \captionsetup[figure]{name={Рисунок}, font={Large}} % Увеличиваем размер шрифта для подписей к рисункам
+    \tikzset{every node/.append style={font=\fontsize{8pt}{10pt}\selectfont}}
+    \sloppy
+}
